@@ -14,4 +14,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookDelDTO {
+    private Integer id;
 }

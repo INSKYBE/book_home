@@ -1,7 +1,6 @@
 package com.example.controller;
 
 import com.example.pojo.DTO.BookAddDTO;
-import com.example.pojo.DTO.BookDelDTO;
 import com.example.pojo.DTO.BookEditDTO;
 import com.example.pojo.entity.Book;
 import com.example.pojo.entity.Result;
@@ -17,7 +16,7 @@ import java.util.List;
  * 2023/11/12
  */
 @RestController
-@RequestMapping("/book")
+@RequestMapping("/admin")
 public class BookController {
     @Autowired
     private BookService bookService;
@@ -41,6 +40,7 @@ public class BookController {
         return Result.success();
     }
 
+    @PutMapping()
     public Result editBook(BookEditDTO bookEditDTO){
         bookService.update(bookEditDTO);
         return Result.success();
