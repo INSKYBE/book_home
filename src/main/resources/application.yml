@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: ${inskybe.datasource.driver-class-name}
+      url: jdbc:mysql://${inskybe.datasource.host}:${inskybe.datasource.port}/${inskybe.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${inskybe.datasource.username}
+      password: ${inskybe.datasource.password}
+  servlet:
+    multipart:
+      max-file-size: 50MB
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.inskybe.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      inskybe:
+        mapper: debug
+        service: info
+        controller: info
